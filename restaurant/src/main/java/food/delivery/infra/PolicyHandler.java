@@ -32,6 +32,8 @@ public class PolicyHandler{
         
 
         // Sample Logic //
+        Restaurant.createOrderInfo(event);
+        
 
         
 
@@ -47,8 +49,6 @@ public class PolicyHandler{
         
 
         // Sample Logic //
-        Restaurant.cancelOrder(event);
-        
 
         
 
@@ -63,8 +63,6 @@ public class PolicyHandler{
         
 
         // Sample Logic //
-        Restaurant.cancelOrder(event);
-        
 
         
 

@@ -189,27 +189,6 @@ public class Notification  {
 
         
     }
-    public static void notifyKakaotalk(OrderCanceled orderCanceled){
-
-        /** Example 1:  new item 
-        Notification notification = new Notification();
-        repository().save(notification);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(orderCanceled.get???()).ifPresent(notification->{
-            
-            notification // do something
-            repository().save(notification);
-
-
-         });
-        */
-
-        
-    }
 
 
 }

@@ -11,7 +11,7 @@ spring:
         - id: order
           uri: http://localhost:8081
           predicates:
-            - Path=/orders/**, 
+            - Path=/orders/**, /orders/**
         - id: restaurant
           uri: http://localhost:8082
           predicates:
@@ -50,7 +50,7 @@ spring:
         - id: order
           uri: http://order:8080
           predicates:
-            - Path=/orders/**, 
+            - Path=/orders/**, /orders/**
         - id: restaurant
           uri: http://restaurant:8080
           predicates:

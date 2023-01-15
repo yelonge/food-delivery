@@ -8,6 +8,8 @@ Vue.use(Router);
 import OrderManager from "./components/listers/OrderCards"
 import OrderDetail from "./components/listers/OrderDetail"
 
+import OrderView from "./components/OrderView"
+import OrderViewDetail from "./components/OrderViewDetail"
 import RestaurantManager from "./components/listers/RestaurantCards"
 import RestaurantDetail from "./components/listers/RestaurantDetail"
 
@@ -33,6 +35,16 @@ export default new Router({
                 component: OrderDetail
             },
 
+            {
+                path: '/orders',
+                name: 'OrderView',
+                component: OrderView
+            },
+            {
+                path: '/orders/:id',
+                name: 'OrderViewDetail',
+                component: OrderViewDetail
+            },
             {
                 path: '/restaurants',
                 name: 'RestaurantManager',

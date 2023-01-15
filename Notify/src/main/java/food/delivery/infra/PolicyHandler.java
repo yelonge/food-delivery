@@ -134,22 +134,6 @@ public class PolicyHandler{
         
 
     }
-    @StreamListener(value=KafkaProcessor.INPUT, condition="headers['type']=='OrderCanceled'")
-    public void wheneverOrderCanceled_NotifyKakaotalk(@Payload OrderCanceled orderCanceled){
-
-        OrderCanceled event = orderCanceled;
-        System.out.println("\n\n##### listener NotifyKakaotalk : " + orderCanceled + "\n\n");
-
-
-        
-
-        // Sample Logic //
-        Notification.notifyKakaotalk(event);
-        
-
-        
-
-    }
 
 }
 

@@ -2,8 +2,8 @@ package food.delivery.domain;
 
 import food.delivery.domain.Accepted;
 import food.delivery.domain.Rejected;
-import food.delivery.domain.CookStarted;
 import food.delivery.domain.CookFinished;
+import food.delivery.domain.CookStarted;
 import food.delivery.RestaurantApplication;
 import javax.persistence.*;
 import java.util.List;
@@ -78,13 +78,16 @@ public class Restaurant  {
 
 
 
-        CookStarted cookStarted = new CookStarted(this);
-        cookStarted.publishAfterCommit();
-
-
-
         CookFinished cookFinished = new CookFinished(this);
         cookFinished.publishAfterCommit();
+
+    }
+    @PostUpdate
+    public void onPostUpdate(){
+
+
+        CookStarted cookStarted = new CookStarted(this);
+        cookStarted.publishAfterCommit();
 
     }
 
@@ -96,7 +99,7 @@ public class Restaurant  {
 
 
 
-    public static void cancelOrder(Rejected rejected){
+    public static void createOrderInfo(OrderPlaced orderPlaced){
 
         /** Example 1:  new item 
         Restaurant restaurant = new Restaurant();
@@ -106,28 +109,7 @@ public class Restaurant  {
 
         /** Example 2:  finding and process
         
-        repository().findById(rejected.get???()).ifPresent(restaurant->{
-            
-            restaurant // do something
-            repository().save(restaurant);
-
-
-         });
-        */
-
-        
-    }
-    public static void cancelOrder(OrderCanceled orderCanceled){
-
-        /** Example 1:  new item 
-        Restaurant restaurant = new Restaurant();
-        repository().save(restaurant);
-
-        */
-
-        /** Example 2:  finding and process
-        
-        repository().findById(orderCanceled.get???()).ifPresent(restaurant->{
+        repository().findById(orderPlaced.get???()).ifPresent(restaurant->{
             
             restaurant // do something
             repository().save(restaurant);
