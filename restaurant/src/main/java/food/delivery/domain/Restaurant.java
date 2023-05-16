@@ -1,106 +1,62 @@
 package food.delivery.domain;
 
+import food.delivery.RestaurantApplication;
 import food.delivery.domain.Accepted;
-import food.delivery.domain.Rejected;
 import food.delivery.domain.CookFinished;
 import food.delivery.domain.CookStarted;
-import food.delivery.RestaurantApplication;
-import javax.persistence.*;
-import java.util.List;
-import lombok.Data;
+import food.delivery.domain.Rejected;
 import java.util.Date;
-
+import java.util.List;
+import javax.persistence.*;
+import lombok.Data;
 
 @Entity
-@Table(name="Restaurant_table")
+@Table(name = "Restaurant_table")
 @Data
+public class Restaurant {
 
-public class Restaurant  {
-
-
-    
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    
-    
-    
-    
-    
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-    
-    
-    
-    
+
     private String orderId;
-    
-    
-    
-    
-    
+
     private String menuId;
-    
-    
-    
-    
-    
+
     private String status;
-    
-    
-    
-    
-    
+
     private Integer qty;
-    
-    
-    
-    
-    
+
     private String address;
-    
-    
-    
-    
-    
+
     private String customerId;
 
     @PostPersist
-    public void onPostPersist(){
-
-
+    public void onPostPersist() {
         Accepted accepted = new Accepted(this);
         accepted.publishAfterCommit();
-
-
 
         Rejected rejected = new Rejected(this);
         rejected.publishAfterCommit();
 
-
-
         CookFinished cookFinished = new CookFinished(this);
         cookFinished.publishAfterCommit();
-
     }
+
     @PostUpdate
-    public void onPostUpdate(){
-
-
+    public void onPostUpdate() {
         CookStarted cookStarted = new CookStarted(this);
         cookStarted.publishAfterCommit();
-
     }
 
-    public static RestaurantRepository repository(){
-        RestaurantRepository restaurantRepository = RestaurantApplication.applicationContext.getBean(RestaurantRepository.class);
+    public static RestaurantRepository repository() {
+        RestaurantRepository restaurantRepository = RestaurantApplication.applicationContext.getBean(
+            RestaurantRepository.class
+        );
         return restaurantRepository;
     }
 
-
-
-
-    public static void createOrderInfo(OrderPlaced orderPlaced){
-
+    public static void createOrderInfo(OrderPlaced orderPlaced) {
         /** Example 1:  new item 
         Restaurant restaurant = new Restaurant();
         repository().save(restaurant);
@@ -118,8 +74,5 @@ public class Restaurant  {
          });
         */
 
-        
     }
-
-
 }

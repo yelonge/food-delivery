@@ -5,7 +5,6 @@ import food.delivery.infra.AbstractEvent;
 import java.util.*;
 import lombok.*;
 
-
 @Data
 @ToString
 public class Rejected extends AbstractEvent {
@@ -18,10 +17,11 @@ public class Rejected extends AbstractEvent {
     private String address;
     private String customerId;
 
-    public Rejected(Restaurant aggregate){
+    public Rejected(Restaurant aggregate) {
         super(aggregate);
     }
-    public Rejected(){
+
+    public Rejected() {
         super();
     }
 }

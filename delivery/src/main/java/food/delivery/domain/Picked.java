@@ -5,7 +5,6 @@ import food.delivery.infra.AbstractEvent;
 import java.util.*;
 import lombok.*;
 
-
 @Data
 @ToString
 public class Picked extends AbstractEvent {
@@ -18,10 +17,11 @@ public class Picked extends AbstractEvent {
     private Integer qty;
     private String status;
 
-    public Picked(Delivery aggregate){
+    public Picked(Delivery aggregate) {
         super(aggregate);
     }
-    public Picked(){
+
+    public Picked() {
         super();
     }
 }

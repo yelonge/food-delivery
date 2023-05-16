@@ -5,7 +5,6 @@ import food.delivery.infra.AbstractEvent;
 import java.util.*;
 import lombok.*;
 
-
 @Data
 @ToString
 public class CookFinished extends AbstractEvent {
@@ -18,10 +17,11 @@ public class CookFinished extends AbstractEvent {
     private String address;
     private String customerId;
 
-    public CookFinished(Restaurant aggregate){
+    public CookFinished(Restaurant aggregate) {
         super(aggregate);
     }
-    public CookFinished(){
+
+    public CookFinished() {
         super();
     }
 }

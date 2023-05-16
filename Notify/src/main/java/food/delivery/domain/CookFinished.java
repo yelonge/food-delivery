@@ -2,8 +2,9 @@ package food.delivery.domain;
 
 import food.delivery.domain.*;
 import food.delivery.infra.AbstractEvent;
-import lombok.*;
 import java.util.*;
+import lombok.*;
+
 @Data
 @ToString
 public class CookFinished extends AbstractEvent {
@@ -16,5 +17,3 @@ public class CookFinished extends AbstractEvent {
     private String address;
     private String customerId;
 }
-
-
